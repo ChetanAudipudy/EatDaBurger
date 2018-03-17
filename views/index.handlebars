@@ -1,0 +1,46 @@
+<h1 class="jumbotron text-center">EatDaBurger!</h1>
+
+<div class="card border-dark" style="padding:25px">
+<h2>Today's Menu!</h2>
+<br>
+
+<div class="d-flex flex-row flex-wrap justify-content-around" style="font-weight: bold">
+ 
+  {{#each burgers}}
+
+    {{#unless devoured}}
+      {{> burgers/burger-block devoured=true}}
+    {{/unless}}
+
+  {{/each}}
+  
+</div>
+<hr>
+
+<h2>Burgers that you devoured!</h2>
+<br>
+
+<div class="row d-flex flex-row flex-wrap justify-content-around w-100 box">
+
+
+  {{#each burgers}}
+    {{#if devoured}}
+      {{> burgers/burger-block devoured=false}}
+    {{/if}}
+  {{/each}}
+
+
+</div>
+<hr>
+
+<h2>Add a Burger</h2>
+<form class="create-form">
+
+  <div class="form-group">
+    <label for="ca">Burger Name:</label>
+    <input type="text" id="ca" name="name">
+  </div>
+
+  <button type="submit">Add Burger</button>
+</form>
+</div>
